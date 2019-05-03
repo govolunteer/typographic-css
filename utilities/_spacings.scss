@@ -1,0 +1,64 @@
+/**
+ * Spacing utility classes
+ */
+
+/**
+ * Utility classes to put specific spacing values onto elements. The below loop
+ * will generate us a suite of classes like:
+ *
+ *   .u-margin-top-1 {}
+ *   .u-margin-right-1/4 {}
+ */
+
+$spacing-directions: (
+  null: null,
+  '-top': '-top',
+  '-right': '-right',
+  '-bottom': '-bottom',
+  '-left': '-left',
+) !default;
+
+$spacing-properties: (
+  'margin': 'margin',
+) !default;
+
+$spacing-sizes: (
+  '-0':                                 0,
+  '-0#{$global-fragment-identifier}25': $global-spacing-unit * 0.25,
+  '-0#{$global-fragment-identifier}5':  $global-spacing-unit * 0.5,
+  '-1':                                 $global-spacing-unit * 1,
+  '-1#{$global-fragment-identifier}5':  $global-spacing-unit * 1.5,
+  '-2':                                 $global-spacing-unit * 2,
+  '-2#{$global-fragment-identifier}5':  $global-spacing-unit * 2.5,
+  '-3':                                 $global-spacing-unit * 3,
+  '-3#{$global-fragment-identifier}5':  $global-spacing-unit * 3.5,
+  '-4':                                 $global-spacing-unit * 4
+) !default;
+
+@each $property, $property-namespace in $spacing-properties {
+  @each $direction, $direction-namespace in $spacing-directions {
+    @each $size, $value in $spacing-sizes {
+      .u-#{$property-namespace}#{$direction-namespace}#{$size} {
+        #{$property}#{$direction}: $value !important;
+      }
+    }
+  }
+}
+
+/**
+ * Responsive variants
+ */
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @each $property, $property-namespace in $spacing-properties {
+      @each $direction, $direction-namespace in $spacing-directions {
+        @each $size, $value in $spacing-sizes {
+          .u-#{$property-namespace}#{$direction-namespace}#{$size}#{$global-breakpoint-separator}#{$bp-name} {
+            #{$property}#{$direction}: $value !important;
+          }
+        }
+      }
+    }
+  }
+}

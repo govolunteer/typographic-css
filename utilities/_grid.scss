@@ -1,0 +1,181 @@
+/**
+ * CSS Grid component with Flexbox fallback.
+ */
+
+/**
+ * CSS Grid implementation
+ */
+
+@supports (display: grid) {
+  .grid {
+    display: grid;
+    grid-gap: $global-grid-gutter-base;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .grid > * {
+    min-width: 0;
+  }
+
+  /**
+   * Grid variants
+   */
+
+  .grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid--5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .grid--6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  /**
+   * Gutter variants
+   */
+
+  .grid--gutter-0\.5 {
+    grid-gap: $global-grid-gutter-base ($global-grid-gutter-base * 0.5);
+  }
+
+  .grid--gutter-1 {
+    grid-gap: $global-grid-gutter-base;
+  }
+
+  .grid--gutter-1\.5 {
+    grid-gap: ($global-grid-gutter-base * 2) ($global-grid-gutter-base * 1.5);
+  }
+
+  .grid--gutter-2 {
+    grid-gap: $global-grid-gutter-base * 2;
+  }
+
+  /**
+   * Responsive variants
+   */
+
+  @each $bp-name, $bp-value in $mq-breakpoints {
+    @include mq($from: $bp-name) {
+      /* Grid */
+      .grid--2#{$global-breakpoint-separator}#{$bp-name} {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid--3#{$global-breakpoint-separator}#{$bp-name} {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .grid--4#{$global-breakpoint-separator}#{$bp-name} {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .grid--5#{$global-breakpoint-separator}#{$bp-name} {
+        grid-template-columns: repeat(5, 1fr);
+      }
+
+      .grid--6#{$global-breakpoint-separator}#{$bp-name} {
+        grid-template-columns: repeat(6, 1fr);
+      }
+
+      /* Gutter */
+      .grid--gutter-0\.5#{$global-breakpoint-separator}#{$bp-name} {
+        grid-gap: $global-grid-gutter-base * 0.5;
+      }
+
+      .grid--gutter-1#{$global-breakpoint-separator}#{$bp-name} {
+        grid-gap: $global-grid-gutter-base;
+      }
+
+      .grid--gutter-1\.5#{$global-breakpoint-separator}#{$bp-name} {
+        grid-gap: $global-grid-gutter-base * 1.5;
+      }
+
+      .grid--gutter-2#{$global-breakpoint-separator}#{$bp-name} {
+        grid-gap: $global-grid-gutter-base * 2;
+      }
+    }
+  }
+}
+
+/**
+ * Flexbox fallback
+ *
+ * No gutter variants here because only a small percentage of browsers does not support grid.
+ */
+
+@supports not (display: grid) {
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: - $global-grid-gutter-base / 2;
+    width: calc(100% + $global-grid-gutter-base);
+  }
+
+  .grid > * {
+  	flex: 0 0 auto;
+  	margin: 0 ($global-grid-gutter-base / 2) $global-grid-gutter-base;
+  }
+
+  /**
+   * Grid variants
+   */
+
+  .grid--2 > * {
+    width: calc((100% / 2) - #{$global-grid-gutter-base});
+  }
+
+  .grid--3 > * {
+    width: calc((100% / 3) - #{$global-grid-gutter-base});
+  }
+
+  .grid--4 > * {
+    width: calc((100% / 4) - #{$global-grid-gutter-base});
+  }
+
+  .grid--5 > * {
+    width: calc((100% / 5) - #{$global-grid-gutter-base});
+  }
+
+  .grid--6 > * {
+    width: calc((100% / 6) - #{$global-grid-gutter-base});
+  }
+
+  /**
+   * Responsive grid variants
+   */
+
+  @each $bp-name, $bp-value in $mq-breakpoints {
+    @include mq($from: $bp-name) {
+      .grid--2#{$global-breakpoint-separator}#{$bp-name} > * {
+        width: calc((100% / 2) - #{$global-grid-gutter-base});
+      }
+
+      .grid--3#{$global-breakpoint-separator}#{$bp-name} > * {
+        width: calc((100% / 3) - #{$global-grid-gutter-base});
+      }
+
+      .grid--4#{$global-breakpoint-separator}#{$bp-name} > * {
+        width: calc((100% / 4) - #{$global-grid-gutter-base});
+      }
+
+      .grid--5#{$global-breakpoint-separator}#{$bp-name} > * {
+        width: calc((100% / 5) - #{$global-grid-gutter-base});
+      }
+
+      .grid--6#{$global-breakpoint-separator}#{$bp-name} > * {
+        width: calc((100% / 6) - #{$global-grid-gutter-base});
+      }
+    }
+  }
+}
