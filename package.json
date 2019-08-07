@@ -1,5 +1,5 @@
 {
-  "name": "typographic-css",
+  "name": "@govolunteer/typographic-css",
   "version": "1.0.0",
   "description": "Typographic CSS tools based on Sass",
   "main": "_typographic.scss",
