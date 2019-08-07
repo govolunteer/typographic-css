@@ -23,11 +23,11 @@
   },
   "homepage": "https://github.com/govolunteer/typographic-css#readme",
   "devDependencies": {
-    "sass": "^1.17.0",
-    "stylelint": "^9.10.1",
+    "sass": "^1.22.9",
+    "stylelint": "^10.0.0",
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-config-recommended-scss": "^3.2.0",
-    "stylelint-scss": "^3.5.3"
+    "stylelint-scss": "^3.9.3"
   },
   "stylelint": {
     "plugins": [
@@ -36,6 +36,6 @@
     "extends": "stylelint-config-recommended-scss"
   },
   "dependencies": {
-    "sass-mq": "^5.0.0"
+    "sass-mq": "^5.0.1"
   }
 }
