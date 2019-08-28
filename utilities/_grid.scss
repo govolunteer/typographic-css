@@ -9,7 +9,7 @@
 @supports (display: grid) {
   .grid {
     display: grid;
-    grid-gap: $global-grid-gutter-base;
+    grid-gap: $tcss-grid-gutter-base;
     grid-template-columns: minmax(0, 1fr);
   }
 
@@ -46,19 +46,19 @@
    */
 
   .grid--gutter-0\.5 {
-    grid-gap: $global-grid-gutter-base ($global-grid-gutter-base * 0.5);
+    grid-gap: $tcss-grid-gutter-base ($tcss-grid-gutter-base * 0.5);
   }
 
   .grid--gutter-1 {
-    grid-gap: $global-grid-gutter-base;
+    grid-gap: $tcss-grid-gutter-base;
   }
 
   .grid--gutter-1\.5 {
-    grid-gap: ($global-grid-gutter-base * 2) ($global-grid-gutter-base * 1.5);
+    grid-gap: ($tcss-grid-gutter-base * 2) ($tcss-grid-gutter-base * 1.5);
   }
 
   .grid--gutter-2 {
-    grid-gap: $global-grid-gutter-base * 2;
+    grid-gap: $tcss-grid-gutter-base * 2;
   }
 
   /**
@@ -68,41 +68,41 @@
   @each $bp-name, $bp-value in $mq-breakpoints {
     @include mq($from: $bp-name) {
       /* Grid */
-      .grid--2#{$global-breakpoint-separator}#{$bp-name} {
+      .grid--2#{$tcss-breakpoint-separator}#{$bp-name} {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .grid--3#{$global-breakpoint-separator}#{$bp-name} {
+      .grid--3#{$tcss-breakpoint-separator}#{$bp-name} {
         grid-template-columns: repeat(3, 1fr);
       }
 
-      .grid--4#{$global-breakpoint-separator}#{$bp-name} {
+      .grid--4#{$tcss-breakpoint-separator}#{$bp-name} {
         grid-template-columns: repeat(4, 1fr);
       }
 
-      .grid--5#{$global-breakpoint-separator}#{$bp-name} {
+      .grid--5#{$tcss-breakpoint-separator}#{$bp-name} {
         grid-template-columns: repeat(5, 1fr);
       }
 
-      .grid--6#{$global-breakpoint-separator}#{$bp-name} {
+      .grid--6#{$tcss-breakpoint-separator}#{$bp-name} {
         grid-template-columns: repeat(6, 1fr);
       }
 
       /* Gutter */
-      .grid--gutter-0\.5#{$global-breakpoint-separator}#{$bp-name} {
-        grid-gap: $global-grid-gutter-base * 0.5;
+      .grid--gutter-0\.5#{$tcss-breakpoint-separator}#{$bp-name} {
+        grid-gap: $tcss-grid-gutter-base * 0.5;
       }
 
-      .grid--gutter-1#{$global-breakpoint-separator}#{$bp-name} {
-        grid-gap: $global-grid-gutter-base;
+      .grid--gutter-1#{$tcss-breakpoint-separator}#{$bp-name} {
+        grid-gap: $tcss-grid-gutter-base;
       }
 
-      .grid--gutter-1\.5#{$global-breakpoint-separator}#{$bp-name} {
-        grid-gap: $global-grid-gutter-base * 1.5;
+      .grid--gutter-1\.5#{$tcss-breakpoint-separator}#{$bp-name} {
+        grid-gap: $tcss-grid-gutter-base * 1.5;
       }
 
-      .grid--gutter-2#{$global-breakpoint-separator}#{$bp-name} {
-        grid-gap: $global-grid-gutter-base * 2;
+      .grid--gutter-2#{$tcss-breakpoint-separator}#{$bp-name} {
+        grid-gap: $tcss-grid-gutter-base * 2;
       }
     }
   }
@@ -118,13 +118,13 @@
   .grid {
     display: flex;
     flex-wrap: wrap;
-    margin: - $global-grid-gutter-base / 2;
-    width: calc(100% + $global-grid-gutter-base);
+    margin: - $tcss-grid-gutter-base / 2;
+    width: calc(100% + $tcss-grid-gutter-base);
   }
 
   .grid > * {
   	flex: 0 0 auto;
-  	margin: 0 ($global-grid-gutter-base / 2) $global-grid-gutter-base;
+  	margin: 0 ($tcss-grid-gutter-base / 2) $tcss-grid-gutter-base;
   }
 
   /**
@@ -132,23 +132,23 @@
    */
 
   .grid--2 > * {
-    width: calc((100% / 2) - #{$global-grid-gutter-base});
+    width: calc((100% / 2) - #{$tcss-grid-gutter-base});
   }
 
   .grid--3 > * {
-    width: calc((100% / 3) - #{$global-grid-gutter-base});
+    width: calc((100% / 3) - #{$tcss-grid-gutter-base});
   }
 
   .grid--4 > * {
-    width: calc((100% / 4) - #{$global-grid-gutter-base});
+    width: calc((100% / 4) - #{$tcss-grid-gutter-base});
   }
 
   .grid--5 > * {
-    width: calc((100% / 5) - #{$global-grid-gutter-base});
+    width: calc((100% / 5) - #{$tcss-grid-gutter-base});
   }
 
   .grid--6 > * {
-    width: calc((100% / 6) - #{$global-grid-gutter-base});
+    width: calc((100% / 6) - #{$tcss-grid-gutter-base});
   }
 
   /**
@@ -157,24 +157,24 @@
 
   @each $bp-name, $bp-value in $mq-breakpoints {
     @include mq($from: $bp-name) {
-      .grid--2#{$global-breakpoint-separator}#{$bp-name} > * {
-        width: calc((100% / 2) - #{$global-grid-gutter-base});
+      .grid--2#{$tcss-breakpoint-separator}#{$bp-name} > * {
+        width: calc((100% / 2) - #{$tcss-grid-gutter-base});
       }
 
-      .grid--3#{$global-breakpoint-separator}#{$bp-name} > * {
-        width: calc((100% / 3) - #{$global-grid-gutter-base});
+      .grid--3#{$tcss-breakpoint-separator}#{$bp-name} > * {
+        width: calc((100% / 3) - #{$tcss-grid-gutter-base});
       }
 
-      .grid--4#{$global-breakpoint-separator}#{$bp-name} > * {
-        width: calc((100% / 4) - #{$global-grid-gutter-base});
+      .grid--4#{$tcss-breakpoint-separator}#{$bp-name} > * {
+        width: calc((100% / 4) - #{$tcss-grid-gutter-base});
       }
 
-      .grid--5#{$global-breakpoint-separator}#{$bp-name} > * {
-        width: calc((100% / 5) - #{$global-grid-gutter-base});
+      .grid--5#{$tcss-breakpoint-separator}#{$bp-name} > * {
+        width: calc((100% / 5) - #{$tcss-grid-gutter-base});
       }
 
-      .grid--6#{$global-breakpoint-separator}#{$bp-name} > * {
-        width: calc((100% / 6) - #{$global-grid-gutter-base});
+      .grid--6#{$tcss-breakpoint-separator}#{$bp-name} > * {
+        width: calc((100% / 6) - #{$tcss-grid-gutter-base});
       }
     }
   }
