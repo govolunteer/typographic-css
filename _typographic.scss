@@ -1,10 +1,9 @@
 @import "node_modules/sass-mq/mq";
 
-$global-spacing-unit: 1.5rem !default;
-$global-fragment-identifier: \. !default;
-$global-breakpoint-separator: \@ !default;
-
-$global-grid-gutter-base: $global-spacing-unit !default;
+$tcss-base-unit: 1.5rem !default;
+$tcss-fragment-identifier: \. !default;
+$tcss-breakpoint-separator: \@ !default;
+$tcss-grid-gutter-base: $tcss-base-unit !default;
 
 @import "utilities/spacings";
 @import "utilities/grid";
