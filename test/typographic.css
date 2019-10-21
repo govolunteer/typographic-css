@@ -5,8 +5,8 @@
  * Utility classes to put specific spacing values onto elements. The below loop
  * will generate us a suite of classes like:
  *
- *   .u-margin-top-1 {}
- *   .u-margin-right-1/4 {}
+ *   .u-mt-1 {}
+ *   .u-mr-0.5 {}
  */
 .u-m-0 {
   margin: 0 !important;
@@ -2244,7 +2244,7 @@
     display: flex;
     flex-wrap: wrap;
     margin: -0.75rem;
-    width: calc(100% + $tcss-grid-gutter-base);
+    width: calc(100% + 1.5rem);
   }
 
   .grid > * {
