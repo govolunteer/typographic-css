@@ -1,6 +1,6 @@
 {
   "name": "@govolunteer/typographic-css",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Typographic CSS tools based on Sass",
   "main": "_typographic.scss",
   "scripts": {
